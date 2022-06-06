@@ -13,7 +13,7 @@ html, body {
     min-height: 100vh;
 }
 
-.books .card {
+.projects .card {
     background-color: #68a2ec;
     color: black;
     text-align: center;
@@ -38,7 +38,7 @@ h1 {
     border-style: groove;
 }
 
-.books {
+.projects {
     background-color: #bccbde;
     border-style: groove;
     display: grid;
@@ -103,7 +103,7 @@ li {
     margin-left: 20px;
 }
 
-.remove-book-button {
+.remove-project-button {
     grid-row: 5 / 6;
     font-weight: 900;
     background-color: red;
