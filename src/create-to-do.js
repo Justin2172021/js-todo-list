@@ -1,5 +1,6 @@
 import { compareAsc, format, parseISO, startOfToday } from 'date-fns';
-import { clearForm } from './dom-manip';
+import { clearForm } from './dom-manip.js';
+import { saveToDoToLocal } from './manage-local-storage.js'
 
 // Creating an array for ToDo, if needed down the road
 let toDoArray = [];
@@ -28,16 +29,16 @@ export const createToDo = () => {
 
     // Loop over the nodelist for Check List items from the DOM and format to string
     const nodeListCheckList = document.querySelectorAll("li");
-    let CheckListArray = [];
+    let _CheckListArray = [];
     for (let i = 0; i < nodeListCheckList.length; i++) {
 
         // Strip off the "x" from end of each li then push to temp array
         let strippedCheckList = nodeListCheckList[i].textContent.replace("\u00D7", '');
-        CheckListArray.push(strippedCheckList);
+        _CheckListArray.push(strippedCheckList);
     }
     
     // Strip off the checklist array and convert to string with commas
-    let CheckList = CheckListArray.join(", ");
+    let CheckList = _CheckListArray.join(", ");
 
     console.log("Called createToDo module...creating todo now");
     console.log({ Title, Description, DueDate, Priority, CheckList });
@@ -45,6 +46,9 @@ export const createToDo = () => {
     // TODO: remove below two lines of code if array is not needed
     toDoArray.push({ Title, Description, DueDate, Priority, CheckList });
     console.log(toDoArray);
+
+    // Call storage module and push object to local storage
+    saveToDoToLocal({ Title, Description, DueDate, Priority, CheckList });
     
     // Reset the form after successful submission
     clearForm();
