@@ -59,7 +59,6 @@ export function displayToDo() {
 
     // Check and clear current display DOM, if any
     const removeDivs = document.querySelectorAll(".card");
-    console.log("show me the node count of current DOM card divs....", removeDivs);
     for (let i = 0; i < removeDivs.length; i++) {
         removeDivs[i].remove();
     }
