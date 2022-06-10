@@ -28,7 +28,7 @@ export const createToDo = () => {
     }
 
     // Loop over the nodelist for Check List items from the DOM and format to string
-    const nodeListCheckList = document.querySelectorAll("li");
+    const nodeListCheckList = document.querySelectorAll(".form-li");
     let _CheckListArray = [];
     for (let i = 0; i < nodeListCheckList.length; i++) {
 
@@ -47,11 +47,13 @@ export const createToDo = () => {
     toDoArray.push({ Title, Description, DueDate, Priority, CheckList });
     console.log(toDoArray);
 
-    // Call storage module and push object to local storage
-    saveToDoToLocal({ Title, Description, DueDate, Priority, CheckList });
     
+
+    // Call storage module and push objects and string to local storage
+    saveToDoToLocal({ Title, Description, DueDate, Priority }, CheckList );
+
     // Reset the form after successful submission
     clearForm();
 
-    return { Title, Description, DueDate, Priority, CheckList };
+    return { Title, Description, DueDate, Priority }, CheckList;
 }

@@ -17,7 +17,7 @@ html, body {
     background-color: #68a2ec;
     color: black;
     text-align: center;
-    height: 400px;
+    min-height: 400px;
     display: grid;
     box-shadow: 5px 5px 5px black;
 }
@@ -103,17 +103,23 @@ li {
     margin-left: 20px;
 }
 
-.remove-project-button {
+.check-list-label {
+    text-align: left;
+    padding-top: 50px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.display-li {
+    cursor: pointer;
+}
+
+.remove-todo-button {
     grid-row: 5 / 6;
     font-weight: 900;
     background-color: red;
-    border-radius: 10px;
-}
-
-.read-status-button {
-    grid-row: 6 / 7;
-    font-weight: 900;
-    background-color: blue;
-    color: white;
     border-radius: 10px;
 }
